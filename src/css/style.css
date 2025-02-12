@@ -1,3 +1,21 @@
+:root {
+  --fg: black;
+  --bg: white;
+  --side: 4rem;
+
+  font-family: monospace;
+
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: white;
+    --bg: black;
+  }
+}
+
 html,
 body {
   padding: 0;
