@@ -1,7 +1,6 @@
 :root {
   --fg: black;
   --bg: white;
-  --side: 4rem;
 
   font-family: monospace;
 
@@ -20,4 +19,9 @@ html,
 body {
   padding: 0;
   margin: 0;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
 }
