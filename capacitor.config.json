@@ -1,0 +1,10 @@
+{
+  "appId": "com.sombriks.yapext",
+  "appName": "yapext",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}
