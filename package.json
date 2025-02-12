@@ -15,7 +15,11 @@
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
-    "vue": "^3.5.13"
+    "@mdi/font": "^7.4.47",
+    "date-fns": "^4.1.0",
+    "dexie": "^4.0.11",
+    "vue": "^3.5.13",
+    "vue-data-ui": "^2.6.3"
   },
   "devDependencies": {
     "@capacitor/cli": "latest",
