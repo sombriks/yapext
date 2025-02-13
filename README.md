@@ -1,9 +1,16 @@
 # [YAPEXT - yet another personal expenses tracker][repo]
 
-## Created with Capacitor Create App
+Like [redline][redline] but simplified.
 
-This app was created using [`@capacitor/create-app`][capacitor],
-and comes with a very minimal shell for building an app.
+## Requirements
+
+- node 20
+- capacitor 7
+- vue 3.5
+- dexie 4
+- date-fns 4
+- @mdi/font 7
+- vue-data-ui 2.6
 
 ### Running this example
 
@@ -13,5 +20,11 @@ To run the provided example, you can use `npm start` command.
 npm run dev
 ```
 
+## Created with Capacitor Create App
+
+This app was created using [`@capacitor/create-app`][capacitor],
+and comes with a very minimal shell for building an app.
+
 [repo]: https://github.com/sombriks/yapext
 [capacitor]: https://github.com/ionic-team/create-capacitor-app
+[redline]: https://github.com/sombriks/redline

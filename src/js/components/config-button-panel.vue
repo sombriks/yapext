@@ -1,5 +1,5 @@
 <template>
-  <h1>Config</h1>
+  <button>Config</button>
 </template>
 <script setup>
 import {ref} from "vue"

@@ -1,3 +1,5 @@
+@import "@mdi/font/css/materialdesignicons.css";
+
 :root {
   --fg: black;
   --bg: white;
@@ -24,4 +26,12 @@ body {
 .content {
   display: flex;
   justify-content: center;
+}
+
+button {
+  border: 1px solid;
+  border-color: var(--fg);
+  border-radius: 1rem;
+  background-color: var(--bg);
+  color: var(--fg);
 }

@@ -1,7 +1,15 @@
 <template>
-  <h1></h1>
+  <div class="container'">
+    <button>{{title}}</button>
+  </div>
 </template>
 <script setup>
-import {ref} from "vue"
+defineProps(["title"])
 
 </script>
+<style scoped>
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+</style>

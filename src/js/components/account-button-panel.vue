@@ -1,7 +1,9 @@
 <template>
-  <h1>Account</h1>
+  <panel-button title="Account"/>
 </template>
 <script setup>
-import {ref} from "vue"
+import PanelButton from "../controls/panel-button.vue"
+
+defineProps(["start", "end"])
 
 </script>
