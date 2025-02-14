@@ -1,8 +1,11 @@
 <template>
   <div class="frame">
     <div class="title">
-      <button v-if="!hideBack" @click="emit('back')">Back</button>
-      &nbsp;
+      <button v-if="!hideBack"
+              @click="emit('back')">
+        <span class="mdi mdi-arrow-left"></span>
+      </button>
+      <span v-if="!hideBack">&nbsp;</span>
       <slot name="title"></slot>
     </div>
     <div class="content">

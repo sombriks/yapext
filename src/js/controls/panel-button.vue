@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <base-button
-        v-if="!expanded"
-        :icon="icon"
-        @click="expanded = true">{{ title }}
-    </base-button>
+    <div v-if="!expanded" class="row">
+      <base-button
+          :icon="icon"
+          @click="expanded = true">{{ title }}
+      </base-button>
+    </div>
     <base-panel
         v-if="expanded"
         :hideBack
@@ -38,7 +39,7 @@ const expanded = ref(false)
   justify-content: space-between;
 }
 
-button {
+button, .row {
   width: 100%;
 }
 </style>

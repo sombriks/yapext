@@ -7,7 +7,7 @@ Like [redline][redline] but simplified.
 - node 20
 - capacitor 7
 - vue 3.5
-- dexie 4
+- [dexie 4][dexie]
 - date-fns 4
 - [@mdi/font 7][mdi]
 - vue-data-ui 2.6
@@ -29,3 +29,4 @@ and comes with a very minimal shell for building an app.
 [capacitor]: https://github.com/ionic-team/create-capacitor-app
 [redline]: https://github.com/sombriks/redline
 [mdi]: https://pictogrammers.com/library/mdi
+[dexie]: https://dexie.org
