@@ -9,7 +9,7 @@ Like [redline][redline] but simplified.
 - vue 3.5
 - dexie 4
 - date-fns 4
-- @mdi/font 7
+- [@mdi/font 7][mdi]
 - vue-data-ui 2.6
 
 ### Running this example
@@ -28,3 +28,4 @@ and comes with a very minimal shell for building an app.
 [repo]: https://github.com/sombriks/yapext
 [capacitor]: https://github.com/ionic-team/create-capacitor-app
 [redline]: https://github.com/sombriks/redline
+[mdi]: https://pictogrammers.com/library/mdi

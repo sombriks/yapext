@@ -1,7 +1,10 @@
 <template>
-  <h1></h1>
+  <button>
+    <span class="mdi" :class="icon"></span>
+    &nbsp;
+    <slot/>
+  </button>
 </template>
 <script setup>
-import {ref} from "vue"
-
+defineProps(["icon"])
 </script>

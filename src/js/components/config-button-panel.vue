@@ -1,7 +1,6 @@
 <template>
-  <button>Config</button>
+  <panel-button icon="mdi-cog-outline" title="Config"/>
 </template>
 <script setup>
-import {ref} from "vue"
-
+import PanelButton from "../controls/panel-button.vue"
 </script>

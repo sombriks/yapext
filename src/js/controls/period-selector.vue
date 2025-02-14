@@ -17,17 +17,25 @@ const start = defineModel("start")
 const end = defineModel("end")
 
 function doPrev() {
-  start.value = startOfMonth(addMonths(start.value,-1))
-  end.value = endOfMonth(addMonths(end.value,-1))
+  start.value = startOfMonth(addMonths(start.value, -1))
+  end.value = endOfMonth(addMonths(end.value, -1))
 }
-function doNext () {
-  start.value = startOfMonth(addMonths(start.value,1))
-  end.value = endOfMonth(addMonths(end.value,1))
+
+function doNext() {
+  start.value = startOfMonth(addMonths(start.value, 1))
+  end.value = endOfMonth(addMonths(end.value, 1))
 }
 </script>
 <style scoped>
 .container {
+  margin: 1rem;
   display: flex;
   justify-content: space-between;
+}
+
+span {
+  flex-grow: 1;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 </style>

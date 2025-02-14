@@ -1,5 +1,5 @@
 <template>
-  <panel-button title="Category"/>
+  <panel-button icon="mdi-shape-plus-outline" title="Category"/>
 </template>
 <script setup>
 import PanelButton from "../controls/panel-button.vue"

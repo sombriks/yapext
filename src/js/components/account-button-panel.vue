@@ -1,5 +1,5 @@
 <template>
-  <panel-button title="Account"/>
+  <panel-button icon="mdi-book-outline" title="Account"/>
 </template>
 <script setup>
 import PanelButton from "../controls/panel-button.vue"
