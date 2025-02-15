@@ -24,14 +24,12 @@
   </div>
 </template>
 <script setup>
-import {ref} from "vue"
-
 import BaseButton from '../elements/base-button.vue'
 import BasePanel from "../elements/base-panel.vue"
 
 defineProps(["title", "icon", "color", "hideBack"])
 
-const expanded = ref(false)
+const expanded = defineModel("expanded")
 </script>
 <style scoped>
 .container {
