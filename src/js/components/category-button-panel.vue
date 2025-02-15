@@ -2,11 +2,13 @@
   <panel-button icon="mdi-shape-plus-outline" title="Category">
     <panel-button
         v-model:expanded="expanded"
+        icon="mdi-shape-plus-outline"
         :color="newCategory.color"
         :title="newCategory.description">
       <category-form
           :category="newCategory"
-          @save="doSave"/>
+          @save="doSave"
+          @cancel="list"/>
     </panel-button>
     <panel-button
         v-for="category in categories"
@@ -15,14 +17,16 @@
         :title="category.description">
       <category-form
           :category="category"
-          @save="doSave"/>
+          @save="doSave"
+          @cancel="list"
+          @del="doDel"/>
     </panel-button>
   </panel-button>
 </template>
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
-import {listCategories} from "../composables/db.js"
+import {listCategories, saveCategory} from "../composables/db.js"
 
 import PanelButton from "../controls/panel-button.vue"
 import CategoryForm from "./category-form.vue";
@@ -38,14 +42,21 @@ function newCat() {
 }
 
 async function doSave(cat) {
-  categories.value = []
-  expanded.value = false
+  await saveCategory(cat)
   await list()
-  newCategory.value = newCat()
+}
+
+async function doDel(cat) {
+  if (confirm("Are you sure/")) {
+    await list()
+  }
 }
 
 async function list() {
-  const cats = await listCategories(props.start, props.end)
+  categories.value = []
+  expanded.value = false
+  newCategory.value = newCat()
+  const cats = await listCategories({start: props.start, end: props.end})
   categories.value = cats
 }
 

@@ -12,13 +12,13 @@ export async function initDB() {
   db.on("populate", tx => {
     return Promise.all([
       tx.table("accounts").bulkAdd([
-        {color: "#94c2ff", description: "Default Wallet", icon: "mdi-wallet-outline"},
-        {color: "#00FF00", description: "Default Bank", icon: "mdi-bank-outline"},
-        {color: "#FF0000", description: "Default Credit Card", icon: "mdi-credit-card-outline"},
+        {created: new Date(), color: "#94c2ff", description: "Default Wallet", icon: "mdi-wallet-outline"},
+        {created: new Date(), color: "#00FF00", description: "Default Bank", icon: "mdi-bank-outline"},
+        {created: new Date(), color: "#FF0000", description: "Default Credit Card", icon: "mdi-credit-card-outline"},
       ]),
       tx.table("categories").bulkAdd([
-        {color: "#00FF00", description: "Earnings"},
-        {color: "#FF0000", description: "Expenses"},
+        {created: new Date(), color: "#00FF00", description: "Earnings", limit: 10000},
+        {created: new Date(), color: "#FF0000", description: "Expenses", limit: 3000},
       ])
     ])
   })
@@ -41,4 +41,12 @@ export async function listEntries({start, end}) {
     .where("dueDate")
     .between(start, end)
     .toArray()
+}
+
+export async function saveCategory(cat) {
+  // TODO validations
+  console.log("saveCategory")
+  const {id, description, color, limit, created} = cat
+  if (!id) return await db.table("categories").add({description, color, limit, created: new Date()})
+  return await db.table("categories").put({id, description, color, limit, created, updated: new Date()})
 }

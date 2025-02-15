@@ -1,19 +1,26 @@
 <template>
   <form @submit.prevent.stop="emit('save', _category)">
-    <text-input label="Description" v-model="_category.description"/>
-    <text-input label="Color" v-model="_category.color"/>
+    <base-input label="Description" v-model="_category.description"/>
+    <base-input label="Color" v-model="_category.color"/>
+    <base-input label="Expected income/expense" v-model="_category.limit"/>
     <div>
-      <input type="submit"/>
+      <base-button icon="mdi-check-outline" color="green" type="submit"/>
+      <base-button icon="mdi-close-outline" color="orange" type="button"
+                   @click="emit('cancel', _category)"/>
+      <base-button v-if="_category.id"  icon="mdi-trash-can-outline"
+                   color="red" type="button"
+                   @click="emit('del', _category)"/>
     </div>
   </form>
 </template>
 <script setup>
 import {ref} from "vue"
 
-import TextInput from "../controls/text-input.vue"
+import BaseInput from "../elements/base-input.vue"
+import BaseButton from "../elements/base-button.vue"
 
 const props = defineProps(["category"])
-const emit = defineEmits(["save"])
+const emit = defineEmits(["save", "cancel", "del"])
 
 const _category = ref({...props.category})
 
@@ -22,5 +29,9 @@ const _category = ref({...props.category})
 div {
   display: flex;
   flex-direction: row-reverse;
+}
+
+div > button {
+  margin-left: 1rem;
 }
 </style>
