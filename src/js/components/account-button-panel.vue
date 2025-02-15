@@ -3,6 +3,8 @@
     <panel-button
         v-for="account in accounts"
         :key="account.id"
+        :icon="account.icon"
+        :color="account.color"
         :title="account.description">
       AAAA
     </panel-button>
@@ -21,7 +23,6 @@ const accounts = ref([])
 
 async function list() {
   const acc = await listAccounts(props.start, props.end)
-  console.log(acc)
   accounts.value = acc
 }
 

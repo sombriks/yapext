@@ -25,6 +25,10 @@ const emit = defineEmits(["back"]);
   display: flex;
 }
 
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
 .actions {
   display: flex;
   flex-direction: row-reverse;

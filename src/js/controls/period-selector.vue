@@ -3,7 +3,9 @@
     <button @click="doPrev">
       <span class="mdi mdi-skip-previous"></span>
     </button>
-    <span>{{ end?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2") }}</span>
+    <div>
+      <span>{{ end?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2") }}</span>
+    </div>
     <button @click="doNext">
       <span class="mdi mdi-skip-next"></span>
     </button>
@@ -33,9 +35,11 @@ function doNext() {
   justify-content: space-between;
 }
 
-span {
+div {
   flex-grow: 1;
+  display: flex;
   margin-left: 1rem;
   margin-right: 1rem;
+  justify-content: center;
 }
 </style>

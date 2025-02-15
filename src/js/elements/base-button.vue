@@ -6,5 +6,12 @@
   </button>
 </template>
 <script setup>
-defineProps(["icon"])
+defineProps(["icon", "color"]);
 </script>
+<style scoped>
+button {
+  white-space: nowrap;
+  color: v-bind(color);
+  border-color: v-bind(color);
+}
+</style>

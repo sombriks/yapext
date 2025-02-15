@@ -3,6 +3,7 @@
     <div v-if="!expanded" class="row">
       <base-button
           :icon="icon"
+          :color="color"
           @click="expanded = true">{{ title }}
       </base-button>
     </div>
@@ -26,9 +27,9 @@
 import {ref} from "vue"
 
 import BaseButton from '../elements/base-button.vue'
-import BasePanel from "../elements/base-panel.vue";
+import BasePanel from "../elements/base-panel.vue"
 
-defineProps(["title", "icon", "hideBack"]);
+defineProps(["title", "icon", "color", "hideBack"])
 
 const expanded = ref(false)
 </script>
