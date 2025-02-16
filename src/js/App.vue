@@ -5,7 +5,7 @@
   <category-list
       :start="period.start"
       :end="period.end"/>
-  <account-button-panel
+  <account-list
       :start="period.start"
       :end="period.end"/>
   <entry-button-panel
@@ -19,7 +19,7 @@ import {endOfMonth, startOfMonth} from "date-fns"
 
 import PeriodSelector from "./controls/period-selector.vue"
 import CategoryList from "./components/category-list.vue"
-import AccountButtonPanel from "./components/account-button-panel.vue"
+import AccountList from "./components/account-list.vue"
 import EntryButtonPanel from "./components/entry-button-panel.vue"
 import ConfigButtonPanel from "./components/config-button-panel.vue"
 

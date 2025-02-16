@@ -11,14 +11,34 @@ export async function initDB() {
 
   db.on("populate", function (tx) {
     return Promise.all([
-      tx.table("accounts").bulkAdd([
-        {created: new Date(), color: "#94c2ff", description: "Default Wallet", icon: "mdi-wallet-outline"},
-        {created: new Date(), color: "#00FF00", description: "Default Bank", icon: "mdi-bank-outline"},
-        {created: new Date(), color: "#FF0000", description: "Default Credit Card", icon: "mdi-credit-card-outline"},
-      ]),
+      tx.table("accounts").bulkAdd([{
+        created: new Date(),
+        color: "#94c2ff",
+        limit: 0,
+        description: "Default Wallet",
+        icon: "mdi-wallet-outline",
+        closureDay: 1,
+        dueDay: 1,
+      }, {
+        created: new Date(),
+        color: "#00FF00",
+        limit: -1000,
+        description: "Default Bank",
+        icon: "mdi-bank-outline",
+        closureDay: 10,
+        dueDay: 10,
+      }, {
+        created: new Date(),
+        color: "#FF0000",
+        limit: -10000,
+        description: "Default Credit Card",
+        icon: "mdi-credit-card-outline",
+        closureDay: 5,
+        dueDay: 15,
+      },]),
       tx.table("categories").bulkAdd([
         {created: new Date(), color: "#00FF00", description: "Earnings", limit: 10000},
-        {created: new Date(), color: "#FF0000", description: "Expenses", limit: 3000},
+        {created: new Date(), color: "#FF0000", description: "Expenses", limit: -3000},
       ])
     ])
   })
@@ -28,6 +48,13 @@ export async function initDB() {
 export async function listAccounts({start, end}) {
   console.log("listAccounts")
   return db.table("accounts").where("id").above(0).toArray()
+}
+
+export async function saveAccounts(account) {
+  console.log("saveAccounts")
+  const {id, description, color, limit, closureDay, dueDay, created} = account
+  if (!id) return db.table("accounts").add({description, color, limit, closureDay, dueDay, created: new Date()})
+  return db.table("accounts").put({description, color, limit, closureDay, dueDay, created, updated: new Date()})
 }
 
 export async function listCategories({start, end}) {
