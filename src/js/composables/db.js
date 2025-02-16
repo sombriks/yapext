@@ -9,7 +9,7 @@ export async function initDB() {
     entries: "++id,categories_id,accounts_id,description,dueDate"
   })
 
-  db.on("populate", tx => {
+  db.on("populate", function (tx) {
     return Promise.all([
       tx.table("accounts").bulkAdd([
         {created: new Date(), color: "#94c2ff", description: "Default Wallet", icon: "mdi-wallet-outline"},
@@ -35,18 +35,26 @@ export async function listCategories({start, end}) {
   return db.table("categories").where("id").above(0).toArray()
 }
 
-export async function listEntries({start, end}) {
-  console.log("listEntries")
-  return db.table("entries")
-    .where("dueDate")
-    .between(start, end)
-    .toArray()
-}
-
 export async function saveCategory(cat) {
   // TODO validations
   console.log("saveCategory")
   const {id, description, color, limit, created} = cat
   if (!id) return await db.table("categories").add({description, color, limit, created: new Date()})
   return await db.table("categories").put({id, description, color, limit, created, updated: new Date()})
+}
+
+export async function delCategory(cat) {
+  console.log("delCategory")
+  const {id} = cat
+  if (id) {
+    return db.table("categories").where("id").equals(id).delete()
+  }
+}
+
+export async function listEntries({start, end}) {
+  console.log("listEntries")
+  return db.table("entries")
+    .where("dueDate")
+    .between(start, end)
+    .toArray()
 }

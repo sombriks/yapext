@@ -35,3 +35,8 @@ button {
   background-color: var(--bg);
   color: var(--fg);
 }
+
+a {
+  background-color: var(--bg);
+  color: var(--fg);
+}

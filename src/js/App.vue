@@ -2,7 +2,7 @@
   <period-selector
       v-model:start="period.start"
       v-model:end="period.end"/>
-  <category-button-panel
+  <category-list
       :start="period.start"
       :end="period.end"/>
   <account-button-panel
@@ -18,7 +18,7 @@ import {reactive} from "vue"
 import {endOfMonth, startOfMonth} from "date-fns"
 
 import PeriodSelector from "./controls/period-selector.vue"
-import CategoryButtonPanel from "./components/category-button-panel.vue"
+import CategoryList from "./components/category-list.vue"
 import AccountButtonPanel from "./components/account-button-panel.vue"
 import EntryButtonPanel from "./components/entry-button-panel.vue"
 import ConfigButtonPanel from "./components/config-button-panel.vue"
