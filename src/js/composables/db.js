@@ -54,7 +54,7 @@ export async function saveAccount(account) {
   console.log("saveAccount")
   const {id, description, color, limit, closureDay, dueDay, created} = account
   if (!id) return db.table("accounts").add({description, color, limit, closureDay, dueDay, created: new Date()})
-  return db.table("accounts").put({description, color, limit, closureDay, dueDay, created, updated: new Date()})
+  return db.table("accounts").put({id, description, color, limit, closureDay, dueDay, created, updated: new Date()})
 }
 
 export async function delAccount(account) {
