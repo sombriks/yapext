@@ -1,28 +1,61 @@
 <template>
-  <panel-button icon="mdi-book-outline" title="Account">
-    <panel-button
+  <panel-button icon="mdi-bank-outline" title="Account">
+    <account-chip
+        :account="newAccount"
+        @save="doSave"
+        @cancel="doCancel"/>
+    <account-chip
         v-for="account in accounts"
         :key="account.id"
-        :icon="account.icon"
-        :color="account.color"
-        :title="account.description">
-      AAAA
-    </panel-button>
+        :account
+        @save="doSave"
+        @cancel="doCancel"
+        @del="doDel"/>
   </panel-button>
 </template>
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
-import {listAccounts} from "../composables/db.js"
+import {listAccounts, saveAccount, delAccount} from "../composables/db.js"
 
 import PanelButton from "../controls/panel-button.vue"
+import AccountChip from "./account-chip.vue"
 
 const props = defineProps(["start", "end"])
 
 const accounts = ref([])
+const newAccount = ref(newAcc())
+
+function newAcc() {
+  return {
+    description: "New account",
+    icon: "mdi-credit-card-plus-outline",
+    color: "white",
+    limit: -3000,
+    closureDay: 1,
+    dueDay: 10
+  }
+}
+
+async function doSave(acc) {
+  await saveAccount(acc)
+  await list()
+}
+
+async function doCancel(acc) {
+  await list()
+}
+
+async function doDel(acc) {
+  if(confirm("Are you sure?")){
+    await delAccount(acc)
+    await list()
+  }
+}
 
 async function list() {
   const acc = await listAccounts(props.start, props.end)
+  newAccount.value = newAcc()
   accounts.value = acc
 }
 

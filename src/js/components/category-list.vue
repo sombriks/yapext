@@ -1,5 +1,5 @@
 <template>
-  <panel-button icon="mdi-shape-plus-outline" title="Category">
+  <panel-button icon="mdi-tag-outline" title="Category">
     <category-chip
         :category="newCategory"
         @save="doSave"

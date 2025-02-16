@@ -2,8 +2,9 @@
   <form @submit.prevent.stop="emit('save', _account)">
 <!--    <base-select label="Account type" v-model="_account.icon"/>-->
     <base-input label="Description" v-model="_account.description"/>
+<!--    <color-chooser label="Color" v-model="_account.color"/>-->
     <base-input label="Color" v-model="_account.color"/>
-    <base-input label="Expected income/expense" v-model="_account.limit"/>
+    <base-input label="Account limit" v-model="_account.limit"/>
     <base-input label="Closure day" v-model="_account.closureDay"/>
     <base-input label="Due day" v-model="_account.dueDay"/>
     <div>

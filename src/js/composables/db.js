@@ -50,11 +50,17 @@ export async function listAccounts({start, end}) {
   return db.table("accounts").where("id").above(0).toArray()
 }
 
-export async function saveAccounts(account) {
-  console.log("saveAccounts")
+export async function saveAccount(account) {
+  console.log("saveAccount")
   const {id, description, color, limit, closureDay, dueDay, created} = account
   if (!id) return db.table("accounts").add({description, color, limit, closureDay, dueDay, created: new Date()})
   return db.table("accounts").put({description, color, limit, closureDay, dueDay, created, updated: new Date()})
+}
+
+export async function delAccount(account) {
+  console.log("delAccount")
+  const {id} = account
+  if (!id) return db.table("accounts").where("id").equals(id).delete()
 }
 
 export async function listCategories({start, end}) {
@@ -73,9 +79,7 @@ export async function saveCategory(cat) {
 export async function delCategory(cat) {
   console.log("delCategory")
   const {id} = cat
-  if (id) {
-    return db.table("categories").where("id").equals(id).delete()
-  }
+  if (id) return db.table("categories").where("id").equals(id).delete()
 }
 
 export async function listEntries({start, end}) {
