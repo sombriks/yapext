@@ -1,12 +1,14 @@
 <template>
-  <panel-button icon="mdi-cash-multiple" title="Entry"/>
+  <expand-panel icon="mdi-cash-multiple" title="Entry">
+    <i>Under construction</i>
+  </expand-panel>
 </template>
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
 import {listEntries} from "../composables/db.js"
 
-import PanelButton from "../controls/panel-button.vue"
+import ExpandPanel from "../controls/expand-panel.vue"
 
 const props = defineProps(["start", "end"])
 

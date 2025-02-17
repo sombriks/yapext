@@ -1,11 +1,11 @@
 <template>
   <label>
     <span>{{ label }}</span>
-    <input type="text" v-model="text"/>
+    <input :type v-model="text"/>
   </label>
 </template>
 <script setup>
-defineProps(["label"])
+defineProps(["label", "type"])
 const text = defineModel()
 </script>
 <style scoped>

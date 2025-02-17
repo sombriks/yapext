@@ -1,5 +1,5 @@
 <template>
-  <panel-button
+  <expand-panel
       v-model:expanded="expanded"
       :icon="account.icon"
       :color="account.color"
@@ -9,12 +9,12 @@
         @save="save"
         @cancel="cancel"
         @del="del"/>
-  </panel-button>
+  </expand-panel>
 </template>
 <script setup>
 import {ref} from "vue"
 
-import PanelButton from "../controls/panel-button.vue"
+import ExpandPanel from "../controls/expand-panel.vue"
 import AccountForm from "./account-form.vue"
 
 defineProps(["account"])

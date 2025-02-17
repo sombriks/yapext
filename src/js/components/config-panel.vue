@@ -1,13 +1,13 @@
 <template>
-  <panel-button icon="mdi-cog-outline" title="Config">
+  <expand-panel icon="mdi-cog-outline" title="Config">
     <div class="content">
       <i>Under construction</i>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
     </div>
-  </panel-button>
+  </expand-panel>
 </template>
 <script setup>
-import PanelButton from "../controls/panel-button.vue"
+import ExpandPanel from "../controls/expand-panel.vue"
 </script>
 <style scoped>
 .content {

@@ -1,5 +1,5 @@
 <template>
-  <panel-button icon="mdi-tag-outline" title="Category">
+  <expand-panel icon="mdi-tag-outline" title="Category">
     <category-chip
         :category="newCategory"
         @save="doSave"
@@ -11,14 +11,14 @@
         @save="doSave"
         @cancel="list"
         @del="doDel"/>
-  </panel-button>
+  </expand-panel>
 </template>
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
 import {delCategory, listCategories, saveCategory} from "../composables/db.js"
 
-import PanelButton from "../controls/panel-button.vue"
+import ExpandPanel from "../controls/expand-panel.vue"
 import CategoryChip from "./category-chip.vue";
 
 const props = defineProps(["start", "end"])

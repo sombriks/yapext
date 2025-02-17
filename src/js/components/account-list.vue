@@ -1,5 +1,5 @@
 <template>
-  <panel-button icon="mdi-bank-outline" title="Account">
+  <expand-panel icon="mdi-bank-outline" title="Account">
     <account-chip
         :account="newAccount"
         @save="doSave"
@@ -11,14 +11,14 @@
         @save="doSave"
         @cancel="doCancel"
         @del="doDel"/>
-  </panel-button>
+  </expand-panel>
 </template>
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
 import {listAccounts, saveAccount, delAccount} from "../composables/db.js"
 
-import PanelButton from "../controls/panel-button.vue"
+import ExpandPanel from "../controls/expand-panel.vue"
 import AccountChip from "./account-chip.vue"
 
 const props = defineProps(["start", "end"])

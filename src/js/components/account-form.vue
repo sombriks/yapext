@@ -4,9 +4,9 @@
     <base-input label="Description" v-model="_account.description"/>
 <!--    <color-chooser label="Color" v-model="_account.color"/>-->
     <base-input label="Color" v-model="_account.color"/>
-    <base-input label="Account limit" v-model="_account.limit"/>
-    <base-input label="Closure day" v-model="_account.closureDay"/>
-    <base-input label="Due day" v-model="_account.dueDay"/>
+    <base-input label="Account limit" type="number" v-model="_account.limit"/>
+    <base-input label="Closure day" type="number" v-model="_account.closureDay"/>
+    <base-input label="Due day" type="number" v-model="_account.dueDay"/>
     <div>
       <base-button icon="mdi-check-outline" color="green" type="submit"/>
       <base-button icon="mdi-close-outline" color="orange" type="button"

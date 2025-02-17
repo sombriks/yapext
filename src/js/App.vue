@@ -8,10 +8,10 @@
   <account-list
       :start="period.start"
       :end="period.end"/>
-  <entry-button-panel
+  <entry-list
       :start="period.start"
       :end="period.end"/>
-  <config-button-panel/>
+  <config-panel/>
 </template>
 <script setup>
 import {reactive} from "vue"
@@ -20,8 +20,8 @@ import {endOfMonth, startOfMonth} from "date-fns"
 import PeriodSelector from "./controls/period-selector.vue"
 import CategoryList from "./components/category-list.vue"
 import AccountList from "./components/account-list.vue"
-import EntryButtonPanel from "./components/entry-button-panel.vue"
-import ConfigButtonPanel from "./components/config-button-panel.vue"
+import EntryList from "./components/entry-list.vue"
+import ConfigPanel from "./components/config-panel.vue"
 
 const period = reactive({
   start: startOfMonth(new Date()),
