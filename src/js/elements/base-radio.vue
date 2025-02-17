@@ -20,4 +20,8 @@ const selected = defineModel()
 label {
   margin-left: 1rem;
 }
+
+fieldset {
+  border-radius: 1rem;
+}
 </style>

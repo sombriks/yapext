@@ -32,6 +32,6 @@ div {
 }
 
 div > button {
-  margin-left: 1rem;
+  margin: 1rem;
 }
 </style>

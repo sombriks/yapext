@@ -4,11 +4,11 @@ Like [redline][redline] but simplified.
 
 ## Requirements
 
-- node 20
+- [node 20][node]
 - capacitor 7
 - [vue 3.5][vue]
 - [dexie 4][dexie]
-- date-fns 4
+- [date-fns 4][date-fns]
 - [@mdi/font 7][mdi]
 - vue-data-ui 2.6
 
@@ -31,3 +31,5 @@ and comes with a very minimal shell for building an app.
 [mdi]: https://pictogrammers.com/library/mdi
 [dexie]: https://dexie.org
 [vue]: https://vuejs.org/guide/components/v-model.html
+[date-fns]: https://date-fns.org/docs/Getting-Started
+[node]: https://nodejs.org
