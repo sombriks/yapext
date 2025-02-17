@@ -52,15 +52,15 @@ export async function listAccounts({start, end}) {
 
 export async function saveAccount(account) {
   console.log("saveAccount")
-  const {id, description, color, limit, closureDay, dueDay, created} = account
-  if (!id) return db.table("accounts").add({description, color, limit, closureDay, dueDay, created: new Date()})
-  return db.table("accounts").put({id, description, color, limit, closureDay, dueDay, created, updated: new Date()})
+  const {id, icon, description, color, limit, closureDay, dueDay, created} = account
+  if (!id) return db.table("accounts").add({description, icon, color, limit, closureDay, dueDay, created: new Date()})
+  return db.table("accounts").put({id, description, icon, color, limit, closureDay, dueDay, created, updated: new Date()})
 }
 
 export async function delAccount(account) {
   console.log("delAccount")
   const {id} = account
-  if (!id) return db.table("accounts").where("id").equals(id).delete()
+  if (id) return db.table("accounts").where("id").equals(id).delete()
 }
 
 export async function listCategories({start, end}) {
@@ -88,4 +88,12 @@ export async function listEntries({start, end}) {
     .where("dueDate")
     .between(start, end)
     .toArray()
+}
+
+export async function saveEntry(entry) {
+  console.log("saveEntry")
+}
+
+export async function delEntry(entry) {
+  console.log("delEntry")
 }

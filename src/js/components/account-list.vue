@@ -47,14 +47,14 @@ async function doCancel(acc) {
 }
 
 async function doDel(acc) {
-  if(confirm("Are you sure?")){
+  if (confirm("Are you sure?")) {
     await delAccount(acc)
     await list()
   }
 }
 
 async function list() {
-  const acc = await listAccounts(props.start, props.end)
+  const acc = await listAccounts({start: props.start, end: props.end})
   newAccount.value = newAcc()
   accounts.value = acc
 }

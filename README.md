@@ -6,7 +6,7 @@ Like [redline][redline] but simplified.
 
 - node 20
 - capacitor 7
-- vue 3.5
+- [vue 3.5][vue]
 - [dexie 4][dexie]
 - date-fns 4
 - [@mdi/font 7][mdi]
@@ -30,3 +30,4 @@ and comes with a very minimal shell for building an app.
 [redline]: https://github.com/sombriks/redline
 [mdi]: https://pictogrammers.com/library/mdi
 [dexie]: https://dexie.org
+[vue]: https://vuejs.org/guide/components/v-model.html
