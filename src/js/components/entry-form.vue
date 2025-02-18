@@ -1,6 +1,11 @@
 <template>
   <form @submit.prevent.stop="emit('save', _entry)">
+    <base-input label="Category" v-model="_entry.categories_id"/>
+    <base-input label="Account" v-model="_entry.accounts_id"/>
     <base-input label="Description" v-model="_entry.description"/>
+    <base-input label="Amount" type="number" v-model="_entry.amount"/>
+    <base-input label="Due date" type="date" v-model="_entry.dueDate"/>
+    <i>Under construction</i>
     <div>
       <base-button icon="mdi-check-outline" color="green" type="submit"/>
       <base-button icon="mdi-close-outline" color="orange" type="button"

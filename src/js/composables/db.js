@@ -54,7 +54,17 @@ export async function saveAccount(account) {
   console.log("saveAccount")
   const {id, icon, description, color, limit, closureDay, dueDay, created} = account
   if (!id) return db.table("accounts").add({description, icon, color, limit, closureDay, dueDay, created: new Date()})
-  return db.table("accounts").put({id, description, icon, color, limit, closureDay, dueDay, created, updated: new Date()})
+  return db.table("accounts").put({
+    id,
+    description,
+    icon,
+    color,
+    limit,
+    closureDay,
+    dueDay,
+    created,
+    updated: new Date()
+  })
 }
 
 export async function delAccount(account) {
@@ -92,8 +102,29 @@ export async function listEntries({start, end}) {
 
 export async function saveEntry(entry) {
   console.log("saveEntry")
+  const {id, accounts_id, categories_id, description, amount, dueDate, created} = entry
+  if (!id) return db.table("entries").add({
+    categories_id,
+    accounts_id,
+    description,
+    amount,
+    dueDate,
+    created: new Date()
+  })
+  return db.table("entries").put({
+    id,
+    categories_id,
+    accounts_id,
+    description,
+    amount,
+    dueDate,
+    created,
+    updated: new Date()
+  })
 }
 
 export async function delEntry(entry) {
   console.log("delEntry")
+  const {id} = entry
+  if (id) return db.table("entries").where("id").equals(id).delete()
 }
