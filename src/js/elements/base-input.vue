@@ -14,4 +14,10 @@ label {
   flex-direction: column;
   white-space: nowrap;
 }
+
+input {
+  border: 1px solid;
+  border-color: var(--fg);
+  border-radius: 0.5rem;
+}
 </style>

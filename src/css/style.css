@@ -28,15 +28,13 @@ body {
   justify-content: center;
 }
 
-button {
+a, button, input {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+button, input {
   border: 1px solid;
   border-color: var(--fg);
   border-radius: 1rem;
-  background-color: var(--bg);
-  color: var(--fg);
-}
-
-a, input {
-  background-color: var(--bg);
-  color: var(--fg);
 }

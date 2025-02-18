@@ -4,7 +4,7 @@
       <span class="mdi mdi-skip-previous"></span>
     </button>
     <div>
-      <span>{{ end?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2") }}</span>
+      <span>{{ start?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2") }}</span>
     </div>
     <button @click="doNext">
       <span class="mdi mdi-skip-next"></span>
