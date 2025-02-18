@@ -8,12 +8,12 @@
   </button>
 </template>
 <script setup>
-defineProps(["icon", "secondaryIcon", "color"]);
+defineProps(["icon", "secondaryIcon", "color", "border"]);
 </script>
 <style scoped>
 button {
   white-space: nowrap;
   color: v-bind(color);
-  border-color: v-bind(color);
+  border-color: v-bind(border);
 }
 </style>

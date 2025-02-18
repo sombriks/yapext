@@ -2,8 +2,9 @@
   <div class="container">
     <div v-if="!expanded" class="row">
       <base-button
-          :icon="icon"
-          :color="color"
+          :icon
+          :color
+          :border
           @click="expanded = true">{{ title }}
       </base-button>
     </div>
@@ -17,9 +18,6 @@
       <template #default>
         <slot name="default"></slot>
       </template>
-      <template #actions>
-        <slot name="actions"></slot>
-      </template>
     </base-panel>
   </div>
 </template>
@@ -27,7 +25,7 @@
 import BaseButton from '../elements/base-button.vue'
 import BasePanel from "../elements/base-panel.vue"
 
-defineProps(["title", "icon", "color", "hideBack"])
+defineProps(["title", "icon", "color", "border", "hideBack"])
 
 const expanded = defineModel("expanded")
 </script>
