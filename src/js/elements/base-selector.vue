@@ -1,15 +1,15 @@
 <template>
   <div class="content">
     <span @click="expanded = !expanded">{{ label }}</span>
-    <div v-if="!expanded">
+    <div>
       <base-button
           :icon="current?.icon"
           :color="current?.color"
-          @click="expanded = true">
+          @click.prevent.stop="expanded = true">
         {{ current?.description || "..." }}
       </base-button>
     </div>
-    <div v-else>
+    <div v-if="expanded">
       <base-button
           v-for="op in options"
           :key="op.id"

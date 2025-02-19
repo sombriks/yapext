@@ -4,7 +4,7 @@
       :color
       :border
       :title
-      :icon="`mdi-cash-${entry?.amount >= 0 ? 'plus' : 'minus'}`">
+      :icon>
     <entry-form
         :entry
         :accounts
@@ -33,10 +33,16 @@ const account = computed(() =>
         a.id == props?.entry?.accounts_id))
 const color = computed(() => category.value?.color)
 const border = computed(() => account.value?.color)
-const title = computed(() =>{
+const title = computed(() => {
   const date = props.entry?.dueDate?.toLocaleDateString()
-  return `${date} - ${props.entry?.description}`
+  if (props.entry?.id){
+    const amount = Number.parseFloat(props.entry?.amount)
+    return `${date} | ${amount}`
+  }
+  return `${date} | ${props.entry?.description}`
 })
+const icon = computed(() =>
+    `mdi-cash-${props.entry?.amount >= 0 ? 'plus' : 'minus'}`)
 
 function save(e) {
   expanded.value = false
