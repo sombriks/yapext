@@ -4,7 +4,7 @@
       <span class="mdi mdi-skip-previous"></span>
     </button>
     <div>
-      <span>{{ start?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2") }}</span>
+      <span>{{ period }}</span>
     </div>
     <button @click="doNext">
       <span class="mdi mdi-skip-next"></span>
@@ -14,9 +14,13 @@
 <script setup>
 
 import {startOfMonth, endOfMonth, addMonths} from "date-fns"
+import {computed} from "vue";
 
 const start = defineModel("start")
 const end = defineModel("end")
+
+const period = computed(() =>
+    start?.value?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2"))
 
 function doPrev() {
   start.value = startOfMonth(addMonths(start.value, -1))

@@ -4,7 +4,8 @@
     <base-selector label="Account" :options="accounts" v-model="_entry.accounts_id"/>
     <base-input label="Description" v-model="_entry.description"/>
     <base-input label="Amount" type="number" v-model="_entry.amount"/>
-    <base-input label="Due date" type="date" v-model="_entry.dueDate"/>
+<!--    <base-input label="Due date" type="date" v-model="_entry.dueDate"/>-->
+    <base-date label="Due date" v-model="_entry.dueDate"/>
     <i>Under construction</i>
     <div>
       <base-button icon="mdi-check-outline" color="green" type="submit"/>
@@ -19,6 +20,7 @@
 <script setup>
 import {ref} from "vue";
 
+import BaseDate from "../elements/base-date.vue"
 import BaseInput from "../elements/base-input.vue"
 import BaseButton from "../elements/base-button.vue"
 import BaseSelector from "../elements/base-selector.vue"
