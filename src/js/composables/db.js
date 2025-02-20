@@ -13,23 +13,23 @@ export async function initDB() {
     return Promise.all([
       tx.table("accounts").bulkAdd([{
         created: new Date(),
-        color: "#94c2ff",
+        color: "rgb(255,183,100)",
         limit: 0,
-        description: "Default Wallet",
+        description: "Wallet",
         icon: "mdi-wallet-outline",
         closureDay: 1,
         dueDay: 1,
       }, {
         created: new Date(),
-        color: "#00FF00",
+        color: "rgb(100,255,199)",
         limit: -1000,
-        description: "Default Bank",
+        description: "Bank",
         icon: "mdi-bank-outline",
         closureDay: 10,
         dueDay: 10,
       }, {
         created: new Date(),
-        color: "#FF0000",
+        color: "rgb(100,237,255)",
         limit: -10000,
         description: "Default Credit Card",
         icon: "mdi-credit-card-outline",
@@ -37,8 +37,17 @@ export async function initDB() {
         dueDay: 15,
       },]),
       tx.table("categories").bulkAdd([
-        {created: new Date(), color: "#00FF00", description: "Earnings", limit: 10000},
-        {created: new Date(), color: "#FF0000", description: "Expenses", limit: -3000},
+        {
+          created: new Date(),
+          color: "rgb(50,255,50)",
+          description: "Earnings",
+          limit: 22000
+        },{
+          created: new Date(),
+          color: "rgb(50,50,50)",
+          description: "Housing",
+          limit: -6000
+        },
       ])
     ])
   })
