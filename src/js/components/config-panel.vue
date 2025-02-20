@@ -1,6 +1,10 @@
 <template>
   <expand-panel icon="mdi-cog-outline" title="Config">
     <div class="content">
+      <!-- import -->
+      <!-- export -->
+      <!-- theme -->
+      <!-- reset -->
       <i>Under construction</i>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
     </div>

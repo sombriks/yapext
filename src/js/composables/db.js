@@ -44,9 +44,29 @@ export async function initDB() {
           limit: 22000
         },{
           created: new Date(),
-          color: "rgb(50,50,50)",
+          color: "rgb(232,239,57)",
           description: "Housing",
           limit: -6000
+        },{
+          created: new Date(),
+          color: "rgb(214,86,86)",
+          description: "Food",
+          limit: -4000
+        },{
+          created: new Date(),
+          color: "rgb(86,214,165)",
+          description: "Services",
+          limit: -2000
+        },{
+          created: new Date(),
+          color: "rgb(103,214,86)",
+          description: "Study",
+          limit: -2000
+        },{
+          created: new Date(),
+          color: "rgb(81,201,221)",
+          description: "Investments",
+          limit: -1000
         },
       ])
     ])
