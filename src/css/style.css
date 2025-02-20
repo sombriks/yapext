@@ -1,40 +1,74 @@
 @import "@mdi/font/css/materialdesignicons.css";
 
 :root {
-  --fg: black;
-  --bg: white;
+    --fg: black;
+    --bg: white;
 
-  font-family: monospace;
+    font-family: monospace;
 
-  color: var(--fg);
-  background-color: var(--bg);
+    color: var(--fg);
+    background-color: var(--bg);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --fg: white;
-    --bg: black;
-  }
+    :root {
+        --fg: white;
+        --bg: black;
+    }
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 .content {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
-a, button, input {
-  color: var(--fg);
-  background-color: var(--bg);
+#app {
+    width: 100vw;
 }
 
-button, input {
-  border: 1px solid;
-  border-color: var(--fg);
-  border-radius: 1rem;
+@media (min-width: 480px) {
+    #app {
+        width: 90vw;
+    }
+}
+
+@media (min-width: 600px) {
+    #app {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 800px) {
+    #app {
+        width: 70vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    #app {
+        width: 60vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    #app {
+        width: 50vw;
+    }
+}
+
+a, button, input, fieldset {
+    color: var(--fg);
+    background-color: var(--bg);
+}
+
+button, input, fieldset {
+    border: 1px solid;
+    border-color: var(--fg);
+    border-radius: 1rem;
 }

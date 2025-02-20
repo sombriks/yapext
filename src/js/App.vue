@@ -23,6 +23,7 @@ import AccountList from "./components/account-list.vue"
 import EntryList from "./components/entry-list.vue"
 import ConfigPanel from "./components/config-panel.vue"
 
+// TODO remember period
 const period = reactive({
   start: startOfMonth(new Date()),
   end: endOfMonth(new Date()),

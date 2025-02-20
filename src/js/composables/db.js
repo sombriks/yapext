@@ -97,7 +97,8 @@ export async function listEntries({start, end}) {
   return db.table("entries")
     .where("dueDate")
     .between(start, end)
-    .toArray()
+    .reverse()
+    .sortBy("dueDate")
 }
 
 export async function saveEntry(entry) {
