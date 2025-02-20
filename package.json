@@ -1,11 +1,14 @@
 {
-  "name": "capacitor-app",
-  "version": "1.0.0",
-  "description": "An Amazing Capacitor App",
   "type": "module",
+  "version": "1.0.0",
+  "name": "yapext",
+  "description": "Yet Another Personal Expenses Tracker",
+  "author": "sombriks",
+  "license": "MIT",
   "keywords": [
     "capacitor",
     "mobile",
+    "web",
     "personal",
     "expenses"
   ],
@@ -28,6 +31,7 @@
     "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^5.4.2"
   },
-  "author": "sombriks",
-  "license": "MIT"
+  "engines": {
+    "node": ">=20"
+  }
 }
