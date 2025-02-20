@@ -15,15 +15,17 @@
   </expand-panel>
 </template>
 <script setup>
-import {computed, ref} from "vue";
+import {computed, ref} from "vue"
 
-import ExpandPanel from "../controls/expand-panel.vue";
-import EntryForm from "./entry-form.vue";
+import {dayFormatter} from "../composables/formatter.js"
+
+import ExpandPanel from "../controls/expand-panel.vue"
+import EntryForm from "./entry-form.vue"
 
 const props = defineProps(["entry", "categories", "accounts"])
 const emit = defineEmits(["save", "cancel", "del"])
 
-const expanded = ref(false);
+const expanded = ref(false)
 
 const category = computed(() =>
     props?.categories?.find(c =>
@@ -34,7 +36,7 @@ const account = computed(() =>
 const color = computed(() => category.value?.color)
 const border = computed(() => account.value?.color)
 const title = computed(() => {
-  const date = props.entry?.dueDate?.toLocaleDateString()
+  const date = dayFormatter(props.entry?.dueDate)
   if (props.entry?.id){
     const amount = Number.parseFloat(props.entry?.amount)
     return `${date} | ${amount}`

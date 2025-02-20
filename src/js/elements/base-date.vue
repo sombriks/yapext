@@ -26,6 +26,7 @@
 import {computed, ref} from "vue"
 
 import BaseButton from "./base-button.vue"
+import {dayFormatter} from "../composables/formatter.js";
 
 defineProps(["label"])
 
@@ -37,9 +38,9 @@ const year = ref(date?.value?.getFullYear())
 const month = ref(date?.value?.getMonth() + 1)
 const day = ref(date?.value?.getDate())
 
-const current = computed(() =>
-    date?.value?.toISOString()
-        .replace(/(\d+)-(\d+)-(\d+)T.*/, "$1-$2-$3") || "...")
+const current = computed(() => dayFormatter(date?.value))
+    // date?.value?.toISOString()
+    //     .replace(/(\d+)-(\d+)-(\d+)T.*/, "$1-$2-$3") || "...")
 
 function done() {
   date.value = new Date(year.value, month.value -1, day.value)

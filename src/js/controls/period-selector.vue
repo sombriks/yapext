@@ -16,11 +16,12 @@
 import {startOfMonth, endOfMonth, addMonths} from "date-fns"
 import {computed} from "vue";
 
+import {periodFormatter} from "../composables/formatter.js"
+
 const start = defineModel("start")
 const end = defineModel("end")
 
-const period = computed(() =>
-    start?.value?.toISOString().replace(/(\d+)-(\d+)-.*/, "$1-$2"))
+const period = computed(() => periodFormatter(start?.value))
 
 function doPrev() {
   start.value = startOfMonth(addMonths(start.value, -1))
