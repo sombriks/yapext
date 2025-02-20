@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "build:gh": "vite build --base=$BASE_URL"
   },
   "dependencies": {
     "@capacitor/camera": "latest",

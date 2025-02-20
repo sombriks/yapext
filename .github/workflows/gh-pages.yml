@@ -24,7 +24,7 @@ jobs:
           node-version-file: 'package.json'
       - run: |
           npm install
-          npm run build
+          npm run build:gh
         env:
           BASE_URL: /yapext
       - uses: actions/upload-pages-artifact@v3
