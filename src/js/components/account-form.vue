@@ -2,8 +2,7 @@
   <form @submit.prevent.stop="emit('save', _account)">
     <base-radio label="Account type" :options="types" v-model="_account.icon"/>
     <base-input label="Description" v-model="_account.description"/>
-    <!--    <color-chooser label="Color" v-model="_account.color"/>-->
-    <base-input label="Color" v-model="_account.color"/>
+    <base-color label="Color" v-model="_account.color"/>
     <base-input label="Account limit" type="number" v-model="_account.limit"/>
     <base-input label="Closure day" type="number" v-model="_account.closureDay"/>
     <base-input label="Due day" type="number" v-model="_account.dueDay"/>
@@ -22,7 +21,8 @@ import {ref} from "vue"
 
 import BaseInput from "../elements/base-input.vue"
 import BaseButton from "../elements/base-button.vue"
-import BaseRadio from "../elements/base-radio.vue";
+import BaseColor from "../elements/base-color.vue"
+import BaseRadio from "../elements/base-radio.vue"
 
 const props = defineProps(["account"])
 const emit = defineEmits(["save", "cancel", "del"])

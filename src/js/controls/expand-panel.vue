@@ -5,6 +5,7 @@
           :icon
           :color
           :border
+          :secondary-icon
           @click="expanded = true">{{ title }}
       </base-button>
     </div>
@@ -25,7 +26,7 @@
 import BaseButton from '../elements/base-button.vue'
 import BasePanel from "../elements/base-panel.vue"
 
-defineProps(["title", "icon", "color", "border", "hideBack"])
+defineProps(["title", "icon", "color", "border", "secondaryIcon", "hideBack"])
 
 const expanded = defineModel("expanded")
 </script>

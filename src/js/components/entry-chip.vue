@@ -1,8 +1,8 @@
 <template>
   <expand-panel
       v-model:expanded="expanded"
+      :secondary-icon="account?.icon"
       :color
-      :border
       :title
       :icon>
     <entry-form
@@ -17,7 +17,7 @@
 <script setup>
 import {computed, ref} from "vue"
 
-import {dayFormatter} from "../composables/formatter.js"
+import {dayFormatter, moneyFormatter} from "../composables/formatter.js"
 
 import ExpandPanel from "../controls/expand-panel.vue"
 import EntryForm from "./entry-form.vue"
@@ -34,11 +34,10 @@ const account = computed(() =>
     props?.accounts?.find(a =>
         a.id == props?.entry?.accounts_id))
 const color = computed(() => category.value?.color)
-const border = computed(() => account.value?.color)
 const title = computed(() => {
   const date = dayFormatter(props.entry?.dueDate)
-  if (props.entry?.id){
-    const amount = Number.parseFloat(props.entry?.amount)
+  if (props.entry?.id) {
+    const amount = moneyFormatter(props.entry?.amount)
     return `${date} | ${amount}`
   }
   return `${date} | ${props.entry?.description}`

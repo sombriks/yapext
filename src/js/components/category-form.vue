@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent.stop="emit('save', _category)">
     <base-input label="Description" v-model="_category.description"/>
-    <base-input label="Color" v-model="_category.color"/>
+    <base-color label="Color" v-model="_category.color"/>
     <base-input label="Expected income/expense" type="number" v-model="_category.limit"/>
     <div>
       <base-button icon="mdi-check-outline" color="green" type="submit"/>
@@ -18,6 +18,7 @@ import {ref} from "vue"
 
 import BaseInput from "../elements/base-input.vue"
 import BaseButton from "../elements/base-button.vue"
+import BaseColor from "../elements/base-color.vue"
 
 const props = defineProps(["category"])
 const emit = defineEmits(["save", "cancel", "del"])
