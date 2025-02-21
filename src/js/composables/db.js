@@ -31,7 +31,7 @@ export async function initDB() {
         created: new Date(),
         color: "rgb(100,237,255)",
         limit: -10000,
-        description: "Default Credit Card",
+        description: "Credit Card",
         icon: "mdi-credit-card-outline",
         closureDay: 5,
         dueDay: 15,
@@ -76,7 +76,7 @@ export async function initDB() {
 
 export async function listAccounts({start, end}) {
   console.log("listAccounts")
-  return db.table("accounts").where("id").above(0).toArray()
+  return db.table("accounts").where("id").above(0).sortBy("description")
 }
 
 export async function saveAccount(account) {

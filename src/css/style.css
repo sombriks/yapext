@@ -17,6 +17,18 @@
     }
 }
 
+.light {
+    color-scheme: light;
+    --fg: black;
+    --bg: white;
+}
+
+.dark {
+    color-scheme: dark;
+    --fg: white;
+    --bg: black;
+}
+
 html,
 body {
     padding: 0;
