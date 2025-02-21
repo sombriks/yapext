@@ -3,7 +3,7 @@
       v-model:expanded="expanded"
       icon="mdi-tag-outline"
       :color="category.color"
-      :title="category.description">
+      :title>
     <category-form
         :category="category"
         @save="save"
@@ -12,15 +12,22 @@
   </expand-panel>
 </template>
 <script setup>
-import {ref} from "vue"
+import {computed, ref} from "vue"
 
 import CategoryForm from "./category-form.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
+import {moneyFormatter} from "../composables/formatter.js";
 
-defineProps(["category"])
+const props = defineProps(["category"])
 const emit = defineEmits(["save", "cancel", "del"])
 
 const expanded = ref(false)
+
+const title = computed(() => {
+  const a = props.category
+  if (!a?.id) return a?.description || ''
+  return `${a?.description} | ${moneyFormatter(a?.position)}`
+})
 
 function save(category) {
   expanded.value = false

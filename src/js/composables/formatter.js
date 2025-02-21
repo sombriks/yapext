@@ -8,7 +8,7 @@ export function dayFormatter(date) {
     .replace(/(\d+)-(\d+)-(\d+)T.*/, "$1-$2-$3") || "..."
 }
 
-export function  moneyFormatter(amount) {
+export function moneyFormatter(amount = 0) {
   return Intl.NumberFormat(navigator.language, {
     style: "currency", currency: 'USD' // TODO check locale
   }).format(amount);

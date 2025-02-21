@@ -42,27 +42,27 @@ export async function initDB() {
           color: "rgb(50,255,50)",
           description: "Earnings",
           limit: 22000
-        },{
+        }, {
           created: new Date(),
           color: "rgb(232,239,57)",
           description: "Housing",
           limit: -6000
-        },{
+        }, {
           created: new Date(),
           color: "rgb(214,86,86)",
           description: "Food",
           limit: -4000
-        },{
+        }, {
           created: new Date(),
           color: "rgb(86,214,165)",
           description: "Services",
           limit: -2000
-        },{
+        }, {
           created: new Date(),
           color: "rgb(103,214,86)",
           description: "Study",
           limit: -2000
-        },{
+        }, {
           created: new Date(),
           color: "rgb(81,201,221)",
           description: "Investments",
@@ -76,7 +76,17 @@ export async function initDB() {
 
 export async function listAccounts({start, end}) {
   console.log("listAccounts")
-  return db.table("accounts").where("id").above(0).sortBy("description")
+  const result = await db.table("accounts").toCollection().sortBy("description")
+  result.map(async (account) => {
+    account.position = (await db.table("entries")
+      .where("dueDate").between(start, end)
+      .and(e => e.accounts_id == account.id)
+      .toArray()).reduce((acc, cur) => {
+      acc += cur.amount
+      return acc
+    }, 0)
+  })
+  return result
 }
 
 export async function saveAccount(account) {
@@ -104,7 +114,17 @@ export async function delAccount(account) {
 
 export async function listCategories({start, end}) {
   console.log("listCategories")
-  return db.table("categories").where("id").above(0).toArray()
+  const result = await db.table("categories").toCollection().sortBy("description")
+  result.map(async (category) => {
+    category.position = (await db.table("entries")
+      .where("dueDate").between(start, end)
+      .and(e => e.categories_id == category.id)
+      .toArray()).reduce((acc, cur) => {
+      acc += cur.amount
+      return acc
+    }, 0)
+  })
+  return result
 }
 
 export async function saveCategory(cat) {
