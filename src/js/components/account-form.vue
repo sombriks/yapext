@@ -19,10 +19,10 @@
 <script setup>
 import {ref} from "vue"
 
-import BaseInput from "../elements/base-input.vue"
-import BaseButton from "../elements/base-button.vue"
-import BaseColor from "../elements/base-color.vue"
-import BaseRadio from "../elements/base-radio.vue"
+import BaseInput from "../controls/base-input.vue"
+import BaseButton from "../controls/base-button.vue"
+import BaseColor from "../controls/base-color.vue"
+import BaseRadio from "../controls/base-radio.vue"
 
 const props = defineProps(["account"])
 const emit = defineEmits(["save", "cancel", "del"])

@@ -5,6 +5,7 @@
     <base-input label="Description" v-model="_entry.description"/>
     <base-input label="Amount" type="number" v-model="_entry.amount"/>
     <base-date label="Due date" v-model="_entry.dueDate"/>
+    <i>...</i>
     <div>
       <base-button icon="mdi-check-outline" color="green" type="submit"/>
       <base-button icon="mdi-close-outline" color="orange" type="button"
@@ -18,10 +19,10 @@
 <script setup>
 import {ref} from "vue";
 
-import BaseDate from "../elements/base-date.vue"
-import BaseInput from "../elements/base-input.vue"
-import BaseButton from "../elements/base-button.vue"
-import BaseSelector from "../elements/base-selector.vue"
+import BaseDate from "../controls/base-date.vue"
+import BaseInput from "../controls/base-input.vue"
+import BaseButton from "../controls/base-button.vue"
+import BaseSelector from "../controls/base-selector.vue"
 
 const props = defineProps(["entry", "categories", "accounts"])
 const emit = defineEmits(["save", "cancel", "del"])

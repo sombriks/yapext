@@ -1,14 +1,13 @@
 <template>
-  <expand-panel icon="mdi-cog-outline" title="Config">
+  <expand-panel
+      v-model:expanded="expanded"
+      icon="mdi-cog-outline"
+      title="Config">
     <div class="content">
-      <i>Under construction</i>
-      <!-- import -->
-      <base-button @click="importData">Import</base-button>
-      <!-- export -->
-      <base-button @click="exportData">Export</base-button>
-      <!-- theme -->
+      <base-button disabled @click="importData">Import</base-button>
+      <base-button disabled @click="exportData">Export</base-button>
       <base-button @click="doTheme">Theme: {{ theme }}</base-button>
-      <!-- reset -->
+      <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
     </div>
@@ -17,9 +16,12 @@
 <script setup>
 import {computed, ref} from "vue"
 
-import BaseButton from "../elements/base-button.vue"
+import BaseButton from "../controls/base-button.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
 
+const expanded = defineModel("expanded")
+
+const currency = ref("USD")
 const _theme = ref(document.querySelector(":root").style.colorScheme || "default")
 
 const theme = computed({
@@ -27,7 +29,6 @@ const theme = computed({
     return _theme.value
   },
   set(value) {
-    console.log(value)
     _theme.value = value
     const root = document.querySelector(":root")
     if (value === 'light') {
@@ -61,6 +62,10 @@ function doTheme() {
   }
 }
 
+function doCurrency(){
+
+}
+
 function resetData() {
   if (confirm("Are you sure?")) {
     indexedDB.deleteDatabase("yapext")
@@ -73,6 +78,7 @@ function resetData() {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 

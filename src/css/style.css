@@ -46,33 +46,33 @@ body {
 
 @media (min-width: 480px) {
     #app {
-        width: 90vw;
+        width: 85vw;
     }
 }
 
 @media (min-width: 600px) {
     #app {
-        width: 80vw;
+        width: 60vw;
     }
 }
 
 @media (min-width: 800px) {
     #app {
-        width: 70vw;
+        width: 45vw;
     }
 }
 
 @media (min-width: 1024px) {
     #app {
-        width: 60vw;
+        width: 30vw;
     }
 }
 
-@media (min-width: 1200px) {
-    #app {
-        width: 50vw;
-    }
-}
+/*@media (min-width: 1200px) {*/
+/*    #app {*/
+/*        width: 50vw;*/
+/*    }*/
+/*}*/
 
 a, button, input, fieldset {
     color: var(--fg);

@@ -3,15 +3,23 @@
       v-model:start="period.start"
       v-model:end="period.end"/>
   <category-list
+      v-model:expanded="active.category"
       :start="period.start"
-      :end="period.end"/>
+      :end="period.end"
+      @click="doExpand('category')"/>
   <account-list
+      v-model:expanded="active.account"
       :start="period.start"
-      :end="period.end"/>
+      :end="period.end"
+      @click="doExpand('account')"/>
   <entry-list
+      v-model:expanded="active.entry"
       :start="period.start"
-      :end="period.end"/>
-  <config-panel/>
+      :end="period.end"
+      @click="doExpand('entry')"/>
+  <config-panel
+      v-model:expanded="active.config"
+      @click="doExpand('config')"/>
 </template>
 <script setup>
 import {reactive} from "vue"
@@ -28,4 +36,18 @@ const period = reactive({
   start: startOfMonth(new Date()),
   end: endOfMonth(new Date()),
 })
+
+const active = reactive({
+  category: false,
+  account: false,
+  entry: false,
+  config: false,
+})
+
+function doExpand(section){
+  const sections = ["category", "account", "entry", "config"]
+  for (const section of sections) active[section] = false
+  active[section] = true
+  console.log(section)
+}
 </script>

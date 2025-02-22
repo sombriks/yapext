@@ -16,9 +16,9 @@
 <script setup>
 import {ref} from "vue"
 
-import BaseInput from "../elements/base-input.vue"
-import BaseButton from "../elements/base-button.vue"
-import BaseColor from "../elements/base-color.vue"
+import BaseInput from "../controls/base-input.vue"
+import BaseButton from "../controls/base-button.vue"
+import BaseColor from "../controls/base-color.vue"
 
 const props = defineProps(["category"])
 const emit = defineEmits(["save", "cancel", "del"])

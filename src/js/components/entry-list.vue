@@ -1,5 +1,8 @@
 <template>
-  <expand-panel icon="mdi-cash-multiple" title="Entry">
+  <expand-panel
+      v-model:expanded="expanded"
+      icon="mdi-cash-multiple"
+      title="Entry">
     <entry-chip
         :entry="newEntry"
         :categories
@@ -21,12 +24,15 @@
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
-import {delEntry, listAccounts, listCategories, listEntries, saveEntry} from "../composables/db.js"
-
 import ExpandPanel from "../controls/expand-panel.vue"
 import EntryChip from "./entry-chip.vue"
+import {listCategories} from "../composables/categories.js";
+import {listAccounts} from "../composables/accounts.js";
+import {delEntry, listEntries, saveEntry} from "../composables/entries.js";
 
 const props = defineProps(["start", "end"])
+
+const expanded = defineModel("expanded")
 
 const entries = ref([])
 const newEntry = ref(mkEntry())

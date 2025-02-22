@@ -1,5 +1,8 @@
 <template>
-  <expand-panel icon="mdi-bank-outline" title="Account">
+  <expand-panel
+      v-model:expanded="expanded"
+      icon="mdi-bank-outline"
+      title="Account">
     <account-chip
         :account="newAccount"
         @save="doSave"
@@ -16,12 +19,13 @@
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
-import {listAccounts, saveAccount, delAccount} from "../composables/db.js"
-
 import ExpandPanel from "../controls/expand-panel.vue"
 import AccountChip from "./account-chip.vue"
+import {delAccount, listAccounts, saveAccount} from "../composables/accounts.js";
 
 const props = defineProps(["start", "end"])
+
+const expanded = defineModel("expanded")
 
 const accounts = ref([])
 const newAccount = ref(newAcc())

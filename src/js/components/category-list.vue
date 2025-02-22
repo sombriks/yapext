@@ -1,5 +1,8 @@
 <template>
-  <expand-panel icon="mdi-tag-outline" title="Category">
+  <expand-panel
+      v-model:expanded="expanded"
+      icon="mdi-tag-outline"
+      title="Category">
     <category-chip
         :category="newCategory"
         @save="doSave"
@@ -16,12 +19,14 @@
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
-import {delCategory, listCategories, saveCategory} from "../composables/db.js"
+import {delCategory, listCategories, saveCategory} from "../composables/categories.js"
 
 import ExpandPanel from "../controls/expand-panel.vue"
-import CategoryChip from "./category-chip.vue";
+import CategoryChip from "./category-chip.vue"
 
 const props = defineProps(["start", "end"])
+
+const expanded = defineModel("expanded")
 
 const categories = ref([])
 const newCategory = ref(newCat())

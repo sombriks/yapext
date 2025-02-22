@@ -23,8 +23,8 @@
   </div>
 </template>
 <script setup>
-import BaseButton from '../elements/base-button.vue'
-import BasePanel from "../elements/base-panel.vue"
+import BaseButton from './base-button.vue'
+import BasePanel from "./base-panel.vue"
 
 defineProps(["title", "icon", "color", "border", "secondaryIcon", "hideBack"])
 
