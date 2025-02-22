@@ -1,6 +1,7 @@
 <template>
   <expand-panel
       v-model:expanded="expanded"
+      :hideBack="hideBack"
       icon="mdi-cog-outline"
       title="Config">
     <div class="content">
@@ -19,6 +20,7 @@ import {computed, ref} from "vue"
 import BaseButton from "../controls/base-button.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
 
+defineProps(["hideBack"])
 const expanded = defineModel("expanded")
 
 const currency = ref("USD")
@@ -62,7 +64,7 @@ function doTheme() {
   }
 }
 
-function doCurrency(){
+function doCurrency() {
 
 }
 

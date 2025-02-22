@@ -1,6 +1,7 @@
 <template>
   <expand-panel
       v-model:expanded="expanded"
+      :hide-back="hideBack"
       icon="mdi-cash-multiple"
       title="Entry">
     <entry-chip
@@ -30,7 +31,7 @@ import {listCategories} from "../composables/categories.js";
 import {listAccounts} from "../composables/accounts.js";
 import {delEntry, listEntries, saveEntry} from "../composables/entries.js";
 
-const props = defineProps(["start", "end"])
+const props = defineProps(["start", "end", "hideBack"])
 
 const expanded = defineModel("expanded")
 

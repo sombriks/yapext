@@ -1,6 +1,7 @@
 <template>
   <expand-panel
       v-model:expanded="expanded"
+      :hide-back="hideBack"
       icon="mdi-bank-outline"
       title="Account">
     <account-chip
@@ -23,7 +24,7 @@ import ExpandPanel from "../controls/expand-panel.vue"
 import AccountChip from "./account-chip.vue"
 import {delAccount, listAccounts, saveAccount} from "../composables/accounts.js";
 
-const props = defineProps(["start", "end"])
+const props = defineProps(["start", "end", "hideBack"])
 
 const expanded = defineModel("expanded")
 

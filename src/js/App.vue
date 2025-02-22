@@ -6,19 +6,23 @@
       v-model:expanded="active.category"
       :start="period.start"
       :end="period.end"
+      :hideBack="true"
       @click="doExpand('category')"/>
   <account-list
       v-model:expanded="active.account"
       :start="period.start"
       :end="period.end"
+      :hideBack="true"
       @click="doExpand('account')"/>
   <entry-list
       v-model:expanded="active.entry"
       :start="period.start"
       :end="period.end"
+      :hideBack="true"
       @click="doExpand('entry')"/>
   <config-panel
       v-model:expanded="active.config"
+      :hideBack="true"
       @click="doExpand('config')"/>
 </template>
 <script setup>
@@ -44,10 +48,9 @@ const active = reactive({
   config: false,
 })
 
-function doExpand(section){
+function doExpand(section) {
   const sections = ["category", "account", "entry", "config"]
   for (const section of sections) active[section] = false
   active[section] = true
-  console.log(section)
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <expand-panel
       v-model:expanded="expanded"
+      :hide-back="hideBack"
       icon="mdi-tag-outline"
       title="Category">
     <category-chip
@@ -24,7 +25,7 @@ import {delCategory, listCategories, saveCategory} from "../composables/categori
 import ExpandPanel from "../controls/expand-panel.vue"
 import CategoryChip from "./category-chip.vue"
 
-const props = defineProps(["start", "end"])
+const props = defineProps(["start", "end", "hideBack"])
 
 const expanded = defineModel("expanded")
 
