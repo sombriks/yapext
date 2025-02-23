@@ -12,13 +12,34 @@ Like [redline][redline] but simplified.
 - [@mdi/font 7][mdi]
 - vue-data-ui 2.6
 
-### Running this example
+## Running this example
 
 To run the provided example, you can use `npm start` command.
 
 ```bash
 npm run dev
 ```
+
+## Mobile support
+
+Add android (or ios) support into capacitor project:
+
+```bash
+npm install @capacitor/android
+npx cap add android
+```
+
+Then every time you want a mobile app build, open the _android_ folder with
+android studio ad build it.
+
+Whenever you make an application change, build and sync:
+
+```bash
+npm run build
+npm run sync
+```
+
+See [these instructions][workflow] for more details.
 
 ## Created with Capacitor Create App
 
@@ -33,3 +54,4 @@ and comes with a very minimal shell for building an app.
 [vue]: https://vuejs.org/guide/components/v-model.html
 [date-fns]: https://date-fns.org/docs/Getting-Started
 [node]: https://nodejs.org
+[workflow]: https://capacitorjs.com/docs/basics/workflow

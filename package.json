@@ -15,9 +15,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:gh": "vite build --base=$BASE_URL"
+    "build:gh": "vite build --base=$BASE_URL",
+    "sync": "cap sync"
   },
   "dependencies": {
+    "@capacitor/android": "^7.0.1",
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
     "@capacitor/splash-screen": "latest",
