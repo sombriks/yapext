@@ -19,6 +19,7 @@
     "sync": "cap sync"
   },
   "dependencies": {
+    "@capacitor-community/admob": "^7.0.1",
     "@capacitor/android": "^7.0.1",
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",

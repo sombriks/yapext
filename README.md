@@ -5,7 +5,7 @@ Like [redline][redline] but simplified.
 ## Requirements
 
 - [node 20][node]
-- capacitor 7
+- [capacitor 7][capacitor]
 - [vue 3.5][vue]
 - [dexie 4][dexie]
 - [date-fns 4][date-fns]
@@ -14,7 +14,7 @@ Like [redline][redline] but simplified.
 
 ## Running this example
 
-To run the provided example, you can use `npm start` command.
+To run the provided example, you can use `npm run dev` command:
 
 ```bash
 npm run dev
@@ -41,6 +41,15 @@ npm run sync
 
 See [these instructions][workflow] for more details.
 
+## Capacitor plugins
+
+There is a wide variety of [capacitor plugins][plugins]:
+
+```bash
+npm install @capacitor-community/admob
+npx cap update
+```
+
 ## Created with Capacitor Create App
 
 This app was created using [`@capacitor/create-app`][capacitor],
@@ -55,3 +64,4 @@ and comes with a very minimal shell for building an app.
 [date-fns]: https://date-fns.org/docs/Getting-Started
 [node]: https://nodejs.org
 [workflow]: https://capacitorjs.com/docs/basics/workflow
+[plugins]: https://capacitorjs.com/docs/plugins
