@@ -11,6 +11,7 @@
       <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
+      <a href="privacy.html">Privacy</a>
     </div>
   </expand-panel>
 </template>

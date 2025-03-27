@@ -1,4 +1,4 @@
-import {AdMob, AdmobConsentStatus, BannerAdPosition, BannerAdSize} from '@capacitor-community/admob';
+import { AdMob, AdmobConsentStatus, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 
 export async function initializeAdMob() {
 
@@ -33,16 +33,17 @@ export async function initializeAdMob() {
   ) {
     await AdMob.showConsentForm()
   }
+}
 
+export async function showBanner() {
   const options = {
-    adId: 'YOUR ADID',
-    adSize: BannerAdSize.BANNER,
+    // adId: import.meta.env.VITE_ADMOB_BANNER_ID,
+    adId: import.meta.env.VITE_ADMOB_BANNER_ID_TEST,
+    adSize: BannerAdSize.ADAPTIVE_BANNER,
     position: BannerAdPosition.BOTTOM_CENTER,
     margin: 0,
-    // isTesting: true
+    isTesting: true
     // npa: true
   }
-
   await AdMob.showBanner(options)
-
 }

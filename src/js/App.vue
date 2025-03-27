@@ -24,7 +24,6 @@
       v-model:expanded="active.config"
       :hideBack="true"
       @click="doExpand('config')"/>
-  <a href="privacy.html">Privacy</a>
 </template>
 <script setup>
 import {reactive} from "vue"
