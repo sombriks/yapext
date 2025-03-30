@@ -20,6 +20,7 @@
 <script setup>
 import {onMounted, ref, watch} from "vue"
 
+
 import {delCategory, listCategories, saveCategory} from "../composables/categories.js"
 
 import ExpandPanel from "../controls/expand-panel.vue"
@@ -33,7 +34,7 @@ const categories = ref([])
 const newCategory = ref(newCat())
 
 function newCat() {
-  return {description: "New Category", color: "#FFFFFF", limit: -1000}
+  return {description: "New Category", color: "var(--fg)", limit: -1000}
 }
 
 async function doSave(cat) {

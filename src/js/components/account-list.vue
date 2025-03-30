@@ -35,7 +35,7 @@ function newAcc() {
   return {
     description: "New account",
     icon: "mdi-credit-card-plus-outline",
-    color: "white",
+    color: "var(--fg)",
     limit: -3000,
     closureDay: 1,
     dueDay: 10
