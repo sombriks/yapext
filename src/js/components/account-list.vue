@@ -47,7 +47,7 @@ async function doSave(acc) {
   await list()
 }
 
-async function doCancel(acc) {
+async function doCancel() {
   await list()
 }
 

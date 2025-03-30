@@ -37,12 +37,11 @@ export async function initializeAdMob() {
 
 export async function showBanner() {
   const options = {
-    // adId: import.meta.env.VITE_ADMOB_BANNER_ID,
-    adId: import.meta.env.VITE_ADMOB_BANNER_ID_TEST,
+    adId: import.meta.env.VITE_ADMOB_BANNER_ID,
     adSize: BannerAdSize.ADAPTIVE_BANNER,
     position: BannerAdPosition.BOTTOM_CENTER,
     margin: 0,
-    isTesting: true
+    isTesting: import.meta.env.VITE_ADMOB_BANNER_TESTING
     // npa: true
   }
   await AdMob.showBanner(options)
