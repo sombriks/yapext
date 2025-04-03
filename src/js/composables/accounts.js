@@ -2,16 +2,19 @@ import {db} from "./db.js"
 
 export async function listAccounts({start, end}) {
   console.log("listAccounts")
-  const result = await db.table("accounts").toCollection().sortBy("description")
-  result.map(async (account) => {
-    account.position = (await db.table("entries")
+  const result = await db.table("accounts")
+    .toCollection()
+    .sortBy("description")
+  for (const account of result) {
+    const entries = await db.table("entries")
       .where("dueDate").between(start, end)
-      .and(e => e.accounts_id == account.id)
-      .toArray()).reduce((acc, cur) => {
+      .and(e => e.accounts_id === account.id)
+      .toArray()
+    account.position = entries.reduce((acc, cur) => {
       acc += cur.amount
       return acc
     }, 0)
-  })
+  }
   return result
 }
 
