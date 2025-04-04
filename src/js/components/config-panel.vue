@@ -6,12 +6,12 @@
       title="Config">
     <div class="content">
       <base-button disabled @click="importData">Import</base-button>
-      <base-button disabled @click="exportData">Export</base-button>
+      <base-button @click="exportData">Export</base-button>
       <base-button @click="doTheme">Theme: {{ theme }}</base-button>
       <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
-      <a href="privacy.html">Privacy</a>
+      <a target="_blank" href="https://sombriks.github.io/yapext/privacy.html">Privacy</a>
     </div>
   </expand-panel>
 </template>
@@ -20,8 +20,12 @@ import {computed, ref} from "vue"
 
 import BaseButton from "../controls/base-button.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
+import {listEntries} from "../composables/entries.js"
+import {listCategories} from "../composables/categories.js"
+import {listAccounts} from "../composables/accounts.js"
+import {joinData, toCSV} from "../composables/import-export.js"
 
-defineProps(["hideBack"])
+const props = defineProps(["start", "end", "hideBack"])
 const expanded = defineModel("expanded")
 
 const currency = ref("USD")
@@ -50,7 +54,20 @@ const theme = computed({
 function importData() {
 }
 
-function exportData() {
+async function exportData() {
+  // select all entries in period
+  const entries = await listEntries({start: props.start, end: props.end})
+  // join categories and account names
+  const categories = await listCategories({start: props.start, end: props.end})
+  const accounts = await listAccounts({start: props.start, end: props.end})
+  joinData({entries, categories, accounts})
+  // concat as csv
+  const csv= toCSV(entries)
+  // open as attachment
+  const blob = new Blob([csv] )
+  const file = new File([blob],"data.csv", { type: 'text/csv' })
+  const url = URL.createObjectURL(file)
+  window.open(url, "_blank")
 }
 
 function doTheme() {

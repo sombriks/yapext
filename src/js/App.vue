@@ -22,6 +22,8 @@
       @click="doExpand('entry')"/>
   <config-panel
       v-model:expanded="active.config"
+      :start="period.start"
+      :end="period.end"
       :hideBack="true"
       @click="doExpand('config')"/>
 </template>
