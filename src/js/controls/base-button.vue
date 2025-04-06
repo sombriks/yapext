@@ -13,8 +13,8 @@ defineProps(["icon", "secondaryIcon", "color", "border", "disabled"]);
 <style scoped>
 button {
   white-space: nowrap;
-  color: v-bind(color);
-  border-color: v-bind(border);
+  color: var(--fg);
+  border-color: v-bind(color);
 }
 
 button[disabled] {

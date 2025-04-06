@@ -10,26 +10,29 @@
       <base-button @click="doTheme">Theme: {{ theme }}</base-button>
       <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
+      <a style="display: none;" ref="download" :href="linkDownload"></a>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
       <a target="_blank" href="https://sombriks.github.io/yapext/privacy.html">Privacy</a>
     </div>
   </expand-panel>
 </template>
 <script setup>
-import {computed, ref} from "vue"
+import {computed, nextTick, ref, useTemplateRef} from "vue"
 
 import BaseButton from "../controls/base-button.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
 import {listEntries} from "../composables/entries.js"
 import {listCategories} from "../composables/categories.js"
 import {listAccounts} from "../composables/accounts.js"
-import {joinData, toCSV} from "../composables/import-export.js"
+import {fromCSV, joinData, saveFile, toCSV} from "../composables/import-export.js"
 
 const props = defineProps(["start", "end", "hideBack"])
 const expanded = defineModel("expanded")
 
 const currency = ref("USD")
 const _theme = ref(document.querySelector(":root").style.colorScheme || "default")
+const linkDownload = ref("")
+const download = useTemplateRef("download")
 
 const theme = computed({
   get() {
@@ -52,6 +55,7 @@ const theme = computed({
 })
 
 function importData() {
+  fromCSV()
 }
 
 async function exportData() {
@@ -62,12 +66,9 @@ async function exportData() {
   const accounts = await listAccounts({start: props.start, end: props.end})
   joinData({entries, categories, accounts})
   // concat as csv
-  const csv= toCSV(entries)
-  // open as attachment
-  const blob = new Blob([csv] )
-  const file = new File([blob],"data.csv", { type: 'text/csv' })
-  const url = URL.createObjectURL(file)
-  window.open(url, "_blank")
+  const csv = toCSV(entries)
+  // save exported data
+  await saveFile({file: csv, date: props.start})
 }
 
 function doTheme() {

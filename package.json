@@ -24,6 +24,7 @@
     "@capacitor/android": "^7.0.1",
     "@capacitor/camera": "latest",
     "@capacitor/core": "latest",
+    "@capacitor/filesystem": "^7.0.1",
     "@capacitor/splash-screen": "latest",
     "@mdi/font": "^7.4.47",
     "date-fns": "^4.1.0",

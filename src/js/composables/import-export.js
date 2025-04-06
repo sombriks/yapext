@@ -1,4 +1,6 @@
-import {dayFormatter} from "./formatter.js";
+import {dayFormatter, periodFormatter} from "./formatter.js";
+import {Directory, Encoding, Filesystem} from "@capacitor/filesystem";
+import {Capacitor} from "@capacitor/core";
 
 export function joinData({entries, categories, accounts}) {
   entries.forEach(entry => {
@@ -19,3 +21,25 @@ export function toCSV(entries) {
       + entry.description + "\n";
   }, "dueDate;category;account;value;description\n")
 }
+
+export async function saveFile({file, date}) {
+  const name = `yapext-data-${periodFormatter(date)}.csv`;
+  if(Capacitor.getPlatform() === "web") {
+    // for web
+    const blob = new Blob([file])
+    const _file = new File([blob], name, {type: 'text/csv'})
+    window.open(URL.createObjectURL(_file), "_blank")
+  } else {
+    // for mobile
+    await Filesystem.writeFile({
+      directory: Directory.Documents,
+      encoding: Encoding.UTF8,
+      recursive: true,
+      path: name,
+      data: file
+    })
+    alert(`File saved in Documents!`)
+  }
+}
+
+export async function fromCSV(cv) {  }
