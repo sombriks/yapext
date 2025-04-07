@@ -5,6 +5,7 @@
     --bg: white;
 
     font-family: monospace;
+    font-weight: bolder;
 
     color: var(--fg);
     background-color: var(--bg);

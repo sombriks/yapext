@@ -42,4 +42,6 @@ export async function saveFile({file, date}) {
   }
 }
 
-export async function fromCSV(cv) {  }
+export async function fromCSV(csv) {
+  console.log(csv)
+}

@@ -5,19 +5,19 @@
       icon="mdi-cog-outline"
       title="Config">
     <div class="content">
-      <base-button disabled @click="importData">Import</base-button>
+      <base-button @click="$refs.inputcsv.click()">Import</base-button>
+      <input type="file" ref="inputcsv" style="display: none;" @change="importData"/>
       <base-button @click="exportData">Export</base-button>
       <base-button @click="doTheme">Theme: {{ theme }}</base-button>
       <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
-      <a style="display: none;" ref="download" :href="linkDownload"></a>
       <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
       <a target="_blank" href="https://sombriks.github.io/yapext/privacy.html">Privacy</a>
     </div>
   </expand-panel>
 </template>
 <script setup>
-import {computed, nextTick, ref, useTemplateRef} from "vue"
+import {computed, ref, useTemplateRef} from "vue"
 
 import BaseButton from "../controls/base-button.vue"
 import ExpandPanel from "../controls/expand-panel.vue"
@@ -31,8 +31,7 @@ const expanded = defineModel("expanded")
 
 const currency = ref("USD")
 const _theme = ref(document.querySelector(":root").style.colorScheme || "default")
-const linkDownload = ref("")
-const download = useTemplateRef("download")
+const inputFile = useTemplateRef("inputcsv")
 
 const theme = computed({
   get() {
@@ -55,7 +54,10 @@ const theme = computed({
 })
 
 function importData() {
-  fromCSV()
+  if(inputFile.value.files) {
+
+    fromCSV()
+  }
 }
 
 async function exportData() {
