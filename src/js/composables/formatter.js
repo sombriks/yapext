@@ -1,4 +1,4 @@
-export function periodFormatter(date) {
+export function monthFormatter(date) {
   return date?.toISOString()
     .replace(/(\d+)-(\d+)-.*/, "$1-$2") || "..."
 }

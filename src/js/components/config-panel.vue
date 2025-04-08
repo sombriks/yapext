@@ -54,9 +54,13 @@ const theme = computed({
 })
 
 function importData() {
-  if(inputFile.value.files) {
-
-    fromCSV()
+  if (inputFile.value.files.length) {
+    const reader = new FileReader()
+    reader.onload = (event) => {
+      fromCSV(event.target.result)
+    }
+    reader.readAsText(inputFile.value.files[0])
+    alert("Import finished!")
   }
 }
 

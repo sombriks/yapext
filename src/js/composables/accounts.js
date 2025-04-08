@@ -40,3 +40,19 @@ export async function delAccount(account) {
   const {id} = account
   if (id) return db.table("accounts").where("id").equals(id).delete()
 }
+
+export async function findOrCreateAccount(description) {
+  const account = await db.table("accounts")
+    .where("description")
+    .equals(description)
+    .first()
+  if(!account) return saveAccount({
+    description,
+    icon: "mdi-wallet-outline",
+    color: "var(--fg)",
+    limit: -3000,
+    closureDay: 1,
+    dueDay: 10
+  })
+  else return account
+}

@@ -5,7 +5,7 @@ export async function listCategories({start, end}) {
   const result = await db.table("categories")
     .toCollection()
     .sortBy("description")
-  for(const category of result) {
+  for (const category of result) {
     const entries = await db.table("entries")
       .where("dueDate").between(start, end)
       .and(e => e.categories_id === category.id)
@@ -30,4 +30,14 @@ export async function delCategory(cat) {
   console.log("delCategory")
   const {id} = cat
   if (id) return db.table("categories").where("id").equals(id).delete()
+}
+
+export async function findOrCreateCategory(description) {
+  const category = await db.table("categories")
+    .where("description")
+    .equals(description)
+    .first()
+  console.log(category)
+  if (!category) return saveCategory({description, color: "var(--fg)", limit: 0})
+  return category
 }
