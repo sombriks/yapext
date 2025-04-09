@@ -30,7 +30,9 @@ const props = defineProps(["start", "end", "hideBack"])
 const expanded = defineModel("expanded")
 
 const currency = ref("USD")
-const _theme = ref(document.querySelector(":root").style.colorScheme || "default")
+const _theme = ref(document
+    .querySelector(":root").style.colorScheme
+    || localStorage.getItem("theme") || "default")
 const inputFile = useTemplateRef("inputcsv")
 
 const theme = computed({
@@ -40,16 +42,14 @@ const theme = computed({
   set(value) {
     _theme.value = value
     const root = document.querySelector(":root")
+    // default
+    root.classList.remove('light', 'dark')
     if (value === 'light') {
       root.classList.add('light')
-      root.classList.remove('dark')
     } else if (value === 'dark') {
-      root.classList.remove('light')
       root.classList.add('dark')
-    } else { // dark
-      root.classList.remove('light')
-      root.classList.remove('dark')
     }
+    localStorage.setItem("theme", value)
   }
 })
 
