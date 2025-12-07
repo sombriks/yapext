@@ -11,8 +11,22 @@
       <base-button @click="doTheme">Theme: {{ theme }}</base-button>
       <base-button disabled @click="doCurrency">Currency: {{ currency }}</base-button>
       <base-button @click="resetData">Reset data</base-button>
-      <a target="_blank" href="https://github.com/sombriks/yapext">This is an open source project</a>
-      <a target="_blank" href="https://sombriks.github.io/yapext/privacy.html">Privacy</a>
+      <h2>Privacy declaration</h2>
+      <p>
+        This application stores all data locally in your device.
+      </p>
+      <p>
+        Google and partners may collect anonymized data for analytics and personalized advertising.
+      </p>
+      <p>
+        Further questions can be addressed to the developer. Check contact
+        information at <a target="_blank" href="https://sombriks.com.br">this homepage</a>
+      </p>
+      <p>
+        <a target="_blank" href="https://github.com/sombriks/yapext">This is an
+        open source project</a>
+      </p>
+
     </div>
   </expand-panel>
 </template>
