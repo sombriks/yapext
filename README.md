@@ -50,11 +50,18 @@ npm install @capacitor-community/admob
 npx cap update
 ```
 
+## Android release
+
+Configure android studio and your signature keys.
+
+Remember to change app version on [android/build.gradle][gradle-build-ver]
+
 ## Created with Capacitor Create App
 
 This app was created using [`@capacitor/create-app`][capacitor],
 and comes with a very minimal shell for building an app.
 
+[gradle-build-ver]: android/build.gradle
 [repo]: https://github.com/sombriks/yapext
 [capacitor]: https://github.com/ionic-team/create-capacitor-app
 [redline]: https://github.com/sombriks/redline
